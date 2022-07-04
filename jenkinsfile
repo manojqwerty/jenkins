@@ -7,5 +7,21 @@
                 echo 'Hello World'
             }
         }
+        stage('TFint') {
+                steps {
+                    script {
+                        sh '''
+                        wget https://releases.hashicorp.com/terraform/0.14.8/terraform_0.14.8_linux_amd64.zip 
+                        unzip terraform_0.14.8_linux_amd64.zip
+                        mv terraform /usr/local/bin/terraform
+                        terraform --version
+                        python --version
+                        cd deployments/sandbox
+                        terraform init
+                        #terraform force-unlock -force 7bd4e02e-5766-231f-c340-4dd5ac0f6d1f
+                        '''
+                        }//script
+                    }//steps
+                } //stage
     }
 }
