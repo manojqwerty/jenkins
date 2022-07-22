@@ -10,7 +10,7 @@
         stage('deploy') {
             steps {
              kubeconfig(credentialsId: 'kuber', serverUrl: '') {
-              sh "kubectl apply -f deployment.yaml"
+              sh 'kubectl apply -f deployment.yaml'
              }
             }
         }
