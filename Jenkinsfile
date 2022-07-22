@@ -5,7 +5,7 @@
         stage('Hello') {
             steps {
              scripts {
-              sh 'aws --version'
+              sh "aws --version"
             }
         }
         }
