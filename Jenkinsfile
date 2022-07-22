@@ -4,17 +4,10 @@
     stages {
         stage('Hello') {
             steps {
-                echo 'Hello World'
+             scripts {
+              sh 'aws --version'
             }
         }
-        stage('deploy') {
-            steps {
-             script {
-             kubeconfig(credentialsId: 'kuber', serverUrl: '') {
-              sh 'kubectl apply -f deployment.yaml'
-             }
-             }
-            }
         }
     }
  }
