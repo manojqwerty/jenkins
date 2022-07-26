@@ -10,7 +10,7 @@
      stage('Deploying App to Kubernetes') {
       steps {
         script {
-         sh 'kubectl apply -f deployment.yaml'
+         sh 'kubectl config view'
         }
       }
     }
