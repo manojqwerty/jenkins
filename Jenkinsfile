@@ -7,6 +7,13 @@
               sh 'aws --version'
             }
         }
+     stage('Deploying App to Kubernetes') {
+      steps {
+        script {
+          kubernetesDeploy(configs: "deployment.yml", kubeconfigId: "kubeconfig555")
+        }
+      }
+    }
     }
  }
      
