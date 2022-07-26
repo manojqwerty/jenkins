@@ -10,11 +10,13 @@
       stage('K8S Deploy') {
         steps{   
             script {
-               kubernetesDeploy configs: 'deployment.yaml', enableConfigSubstitution: false, kubeConfig: [path: ''], kubeconfigId: 'kubeconfig555', secretName: '', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://']
+              withKubeCredentials(kubectlCredentials: [[caCertificate: '', clusterName: 'eks-1', contextName: 'arn:aws:eks:us-west-2:625258239515:cluster/eks-1', credentialsId: 'KUBECONFIG', namespace: 'default', serverUrl: 'https://27451E4791D9E192B83ACF0338944894.gr7.us-west-2.eks.amazonaws.com']]) {
+                   sh 'kubectl get nodes'
+              }
+              }
             }
         }
-       }
+      }
     }
- }
      
       
