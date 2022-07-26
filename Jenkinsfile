@@ -10,7 +10,7 @@
      stage('Deploying App to Kubernetes') {
       steps {
         script {
-         sh 'kubectl config view'
+         sh 'kubectl cluster-info'
         }
       }
     }
